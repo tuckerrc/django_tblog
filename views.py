@@ -10,7 +10,7 @@ from .models import Post
 
 class IndexView(generic.ListView):
     template_name = 'tblog/index.html'
-    context_object_name = 'latest_question_list'
+    context_object_name = 'latest_post_list'
 
     def get_queryset(self):
         return Post.objects.filter(pub_date__lte=timezone.now()).order_by('-pub_date')[:10]
