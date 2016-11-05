@@ -1,3 +1,4 @@
+
 import datetime
 
 from django.db import models
@@ -18,7 +19,7 @@ class Post(models.Model):
         return now - datetime.timedelta(days=7) <= self.pub_date <= now
     def save(self, *args, **kawgs):
         if self.body:
-            self.summary = self.body[:150] + '...'
+            self.summary = self.body[:500] + '...'
         super(Post, self).save(*args, **kawgs)
     was_published_recently.admin_order_field = 'pub_date'
     was_published_recently.boolean = True

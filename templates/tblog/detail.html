@@ -1,3 +1,7 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post.title|escape }} | Blog{% endblock %}
+
 <h1>{{ post.title }}</h1>
 <p><em>{{ post.pub_date|date:"F j, Y"}}</em></p>
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
@@ -5,4 +9,3 @@
 <div class="tblog_content">
   {{ post.body|linebreaks }}
 </div>
-
