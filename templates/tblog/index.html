@@ -2,12 +2,11 @@
 
 {% if latest_post_list %}
 
-<div class="row tblog_list">
+<div class="tblog_list">
   {% for post in latest_post_list %}
-  <div class="col-md-12">
     <h2><a href="{% url 'posts:detail' post.id %}">{{ post.title }}</a></h2>
+    <p><em>{{ post.pub_date|date:"F j, Y" }}</em></p>
     <p>{{ post.summary }}<a href="{% url 'posts:detail' post.id %}">read more.</a</p>
-  </div>
   {% endfor %}
 </div>
 
